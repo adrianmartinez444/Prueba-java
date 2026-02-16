@@ -1,23 +1,50 @@
+
+import java.util.List;
+import  java.util.ArrayList;
+
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main (String[] args){
+        List<String> productos = new ArrayList<>();
 
-        String nombre = "Adrian";
+        // Crear nuevos productos
+        //productos.add ("Laptop");
+        //productos.add ("Mouse");
+        //productos.add ("Teclado");
 
-        int edad = 17;
-            if (edad >= 18){
-                System.out.println ("Eres mayor de edad");
-            }else {
-                System.out.println ("Eres menor de edad");
-            }
+        //Crear productos nuevos
 
-        double salario = 1500.00;
-        boolean activo = true;
+        Producto laptop = new Producto(1L, "Laptop Asus", 25000,00);
+        Producto mouse = new Producto(1L, "Mouse logitech", 25.00,00);
+        Producto teclado = new Producto(1L, "Teclado Ajaxxx", 300,00);
 
+        //imprimir cantidad de productos
+        //System.out.println("Total de productos: "+ productos.size());
+        //imprimir productos por aparte
+        //System.out.println("El primer producto es: " + productos.get(0));
 
-        System.out.println ("Nombre: " + nombre);
-        System.out.println ("Edad: " + edad);
-        System.out.println ("Salario: " + salario);
-        System.out.println ("Activo: " + activo);
+        // Usar los metodos
 
+        laptop.mostrarInfo();
+        System.out.println();
+        laptop.aplicarDescuento(10);
+
+        System.out.println();
+
+        List<Producto> catalogo = new ArrayList<>();
+        catalogo.add(laptop);
+        catalogo.add(teclado);
+        catalogo.add(mouse);
+
+        System.out.println ("\n ----- Catalogo completado -----");
+        for(Producto P : catalogo) {
+            System.out.println( P.getNombre() + " - $" + P.getPrecio());
+        }
+
+        //Recorrido de lista (Se hace todo el tiempo)
+
+        for (String producto : productos) {
+            System.out.println("- " + producto);
+        }
     }
 }
